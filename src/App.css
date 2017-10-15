@@ -1,0 +1,128 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+    height: 80px;
+    width: 80px;
+    background: white;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    transition: transform .5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+}
+.App-logo-animation: {
+    animation: App-logo-spin 2s linear;
+}
+
+.App-header {
+    background-color: #222;
+    height: 550px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.big-logo {
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+    z-index: 1;
+}
+.biggest-logo {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    background: blue;
+    border-radius: 50%;
+    z-index: 0;
+}
+.little-circle {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+}
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.one, .two, .three, .four {
+    position: absolute;
+}
+.one {
+    top: 15px;
+    left: 15px;
+}
+.two {
+    top: 15px;
+    right: 15px;
+    }
+.three {
+    bottom: 15px;
+    right: 15px;
+}
+.four {
+    bottom: 15px;
+    left: 15px;
+}
+.un {
+    top: 20px;
+    left: 20px;
+}
+.dos {
+    top: 20px;
+    right: 20px;
+}
+.tres {
+    bottom: 20px;
+    right: 20px;
+}
+.quatro {
+    bottom: 20px;
+    left: 20px;
+}
+.ein {
+    top: 22px;
+    left: 22px;
+}
+.zwei {
+    top: 22px;
+    right: 22px;
+}
+.drei {
+    bottom: 22px;
+    right: 22px;
+}
+.fier {
+    bottom: 22px;
+    left: 22px;
+}
+.submit {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    bottom: 140px;
+    background-color: blueviolet;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
