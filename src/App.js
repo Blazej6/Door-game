@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { CSSTransitionGroup } from 'react-transition-group';
+import classnames from 'classnames';
 
 class HalfCircle extends Component {      
   render() {
@@ -20,20 +20,23 @@ class Circleone extends Component {
       currentAngle: 120,
       anglePerClick: 120,
     }
-  }  
+  }
   rotateCircle() {
     const { currentAngle, anglePerClick } = this.state;
     this.setState({ 
       currentAngle: currentAngle + anglePerClick 
     })
-  }
+  }    
   render() {
     const circleStyle = {
       transform: `rotateZ(${this.state.currentAngle}deg)`
     }  
-    return (
-          <div className="App-logo small-logo" alt="logo" style={circleStyle}
-          onClick={this.rotateCircle.bind(this)} >
+
+    return (             
+          <div className="App-logo small-logo" 
+               alt="logo" 
+               style={circleStyle}
+               onClick={this.rotateCircle.bind(this)}>
             <div className="little-circle one react"></div>
             <div className="little-circle two angular"></div>
             <div className="little-circle three vue"></div>
@@ -61,7 +64,8 @@ class Circletwo extends Component {
       transform: `rotateZ(${this.state.currentAngle}deg)`
     }  
     return (
-          <div className="App-logo big-logo" style={circleStyle}
+          <div className="App-logo big-logo" 
+          style={circleStyle}
           onClick={this.rotateCircle.bind(this)} >
                         
             <div className="little-circle un react"></div>
@@ -122,7 +126,10 @@ class ClawCircle extends Component {
       transform: `rotateZ(${this.state.currentAngle}deg)`
     }  
     return (
-          <div className="App-logo claw-circle" alt="logo" style={circleStyle}
+          <div 
+          className={classnames('App-logo','claw-circle', this.props.styleName)} 
+          alt="logo" 
+          style={circleStyle}
           onClick={this.rotateCircle.bind(this)} >
           </div>
     );
@@ -130,18 +137,25 @@ class ClawCircle extends Component {
 }
 
 
-class App extends Component {  
-      
-  render() {  
+class App extends Component {      
+  
+
+
+  render() {   
+
+    const imagesAvailable = ['angular', 'vue', 'react']
+
+    const imageChoosen = imagesAvailable[2]
+
     return (
       <div className="App">
         
         <header className="App-header">
             
-            <Circleone/>
-            <Circletwo/>
-            <Circlethree/>    
-            <ClawCircle/>
+            <Circleone />
+            <Circletwo />
+            <Circlethree />    
+            <ClawCircle styleName={imageChoosen}/>
             <HalfCircle/>
             
         </header>
