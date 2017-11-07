@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import classnames from 'classnames';
+import './App.css'
 
 class HalfCircle extends Component {      
   render() {
@@ -11,8 +12,6 @@ class HalfCircle extends Component {
   }
 }
 
-
-
 class Circleone extends Component {      
   constructor(props){
     super(props)
@@ -20,6 +19,7 @@ class Circleone extends Component {
       currentAngle: 120,
       anglePerClick: 120,
     }
+    this.rotateCircle = this.rotateCircle.bind(this);
   }
   rotateCircle() {
     const { currentAngle, anglePerClick } = this.state;
@@ -36,7 +36,7 @@ class Circleone extends Component {
           <div className="App-logo small-logo" 
                alt="logo" 
                style={circleStyle}
-               onClick={this.rotateCircle.bind(this)}>
+               onClick={this.rotateCircle}>
             <div className="little-circle one react"></div>
             <div className="little-circle two angular"></div>
             <div className="little-circle three vue"></div>
@@ -52,6 +52,7 @@ class Circletwo extends Component {
       currentAngle: 120,
       anglePerClick: 120,
     }
+    this.rotateCircle = this.rotateCircle.bind(this);
   }  
   rotateCircle() {
     const { currentAngle, anglePerClick } = this.state;
@@ -66,7 +67,7 @@ class Circletwo extends Component {
     return (
           <div className="App-logo big-logo" 
           style={circleStyle}
-          onClick={this.rotateCircle.bind(this)} >
+          onClick={this.rotateCircle} >
                         
             <div className="little-circle un react"></div>
             <div className="little-circle dos angular"></div>
@@ -84,6 +85,7 @@ class Circlethree extends Component {
       currentAngle: 120,
       anglePerClick: 120,
     }
+    this.rotateCircle = this.rotateCircle.bind(this);
   }  
   rotateCircle() {
     const { currentAngle, anglePerClick } = this.state;
@@ -98,7 +100,7 @@ class Circlethree extends Component {
     }  
     return (
         <div className="App-logo biggest-logo" alt="logo" style={circleStyle}
-            onClick={this.rotateCircle.bind(this)}>             
+            onClick={this.rotateCircle}>             
             <div className="little-circle ein react"></div>
             <div className="little-circle zwei angular"></div>
             <div className="little-circle drei vue"></div>
@@ -108,29 +110,11 @@ class Circlethree extends Component {
 }
 
 class ClawCircle extends Component {      
-  constructor(props){
-    super(props)
-    this.state = {
-      currentAngle: 45,
-      anglePerClick: 360,
-    }
-  }  
-  rotateCircle() {
-    const { currentAngle, anglePerClick } = this.state;
-    this.setState({ 
-      currentAngle: currentAngle + anglePerClick 
-    })
-  }
   render() {
-    const circleStyle = {
-      transform: `rotateZ(${this.state.currentAngle}deg)`
-    }  
     return (
           <div 
           className={classnames('App-logo','claw-circle', this.props.styleName)} 
-          alt="logo" 
-          style={circleStyle}
-          onClick={this.rotateCircle.bind(this)} >
+          alt="logo" >
           </div>
     );
   }
@@ -146,21 +130,24 @@ class App extends Component {
     const imagesAvailable = ['angular', 'vue', 'react']
 
     const imageChoosen = imagesAvailable[2]
-
     return (
+      
       <div className="App">
         
         <header className="App-header">
             
             <Circleone />
             <Circletwo />
-            <Circlethree />    
+            <Circlethree />
             <ClawCircle styleName={imageChoosen}/>
             <HalfCircle/>
-            
-        </header>
-               
+              
+        </header>      
       </div>
+
+
+            
+      
     );
   }
 }
